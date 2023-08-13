@@ -1,70 +1,70 @@
 [
         {
-            "title": "Intel i9-11900K",
-            "price": 699,
+            "nombre": "Intel i9-11900K",
+            "precio": 699,
             "code": "CPU001",
             "stock": 5,
             "id": 1
         },
         {
-            "title": "NVIDIA GeForce RTX 3080",
-            "price": 1499,
+            "nombre": "NVIDIA GeForce RTX 3080",
+            "precio": 1499,
             "code": "GPU002",
             "stock": 8,
             "id": 2
         },
         {
-            "title": "Corsair Vengeance RGB Pro 32GB RAM",
-            "price": 249,
+            "nombre": "Corsair Vengeance RGB Pro 32GB RAM",
+            "precio": 249,
             "code": "RAM001",
             "stock": 15,
             "id": 3
         },
         {
-            "title": "Samsung 970 EVO Plus 1TB NVMe SSD",
-            "price": 199,
+            "nombre": "Samsung 970 EVO Plus 1TB NVMe SSD",
+            "precio": 199,
             "code": "SSD001",
             "stock": 20,
             "id": 4
         },
         {
-            "title": "ASUS ROG Crosshair VIII Hero Motherboard",
-            "price": 349,
+            "nombre": "ASUS ROG Crosshair VIII Hero Motherboard",
+            "precio": 349,
             "code": "MB001",
             "stock": 7,
             "id": 5
         },
         {
-            "title": "Seagate Barracuda 4TB HDD",
-            "price": 99,
+            "nombre": "Seagate Barracuda 4TB HDD",
+            "precio": 99,
             "code": "HDD001",
             "stock": 12,
             "id": 6
         },
         {
-            "title": "NZXT Kraken X63 AIO Cooler",
-            "price": 149,
+            "nombre": "NZXT Kraken X63 AIO Cooler",
+            "precio": 149,
             "code": "COOL001",
             "stock": 9,
             "id": 7
         },
         {
-            "title": "EVGA 850W Gold Power Supply",
-            "price": 129,
+            "nombre": "EVGA 850W Gold Power Supply",
+            "precio": 129,
             "code": "PSU001",
             "stock": 11,
             "id": 8
         },
         {
-            "title": "Corsair Carbide 275R Mid-Tower Case",
-            "price": 89,
+            "nombre": "Corsair Carbide 275R Mid-Tower Case",
+            "precio": 89,
             "code": "CASE001",
             "stock": 14,
             "id": 9
         },
         {
-            "title": "Logitech G Pro X Mechanical Keyboard",
-            "price": 129,
+            "nombre": "Logitech G Pro X Mechanical Keyboard",
+            "precio": 129,
             "code": "KB001",
             "stock": 6,
             "id": 10

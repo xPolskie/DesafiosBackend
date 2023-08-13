@@ -9,7 +9,7 @@ class ProductManager {
     
 
 async addProduct(product) {
-    const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
+    const prods = JSON.parse(await fs.readFile(productsFilePath, 'utf-8'))
     const producto = prods.find(prod => prod.id === product.id)
 
     if (producto) {
@@ -53,7 +53,7 @@ async updateProduct(id, product) {
     const indice = prods.findIndex(prod => prod.id === id)
     if (indice != -1) {
         prods[indice].nombre = product.nombre
-        await fs.writeFile(path, JSON.stringify(prods))
+        await fs.writeFile(productsFilePath, JSON.stringify(prods))
     } else {
         console.log("Producto inexistente")
     }
@@ -64,7 +64,7 @@ async deleteProduct(id) {
     const producto = prods.find(prod => prod.id === id)
 
     if (producto) {
-        await fs.writeFile(path, JSON.stringify(prods.filter(prod => prod.id != id)))
+        await fs.writeFile(productsFilePath, JSON.stringify(prods.filter(prod => prod.id != id)))
     } else {
         console.log("Producto inexistente")
     }
