@@ -1,22 +1,30 @@
 import express from 'express'
+import ProductManager from '../src/ProductManager.js';
+import fs from 'fs';
+const PRODUCTS_FILE_PATH = "./products/products.json";
+const productManager = new ProductManager(PRODUCTS_FILE_PATH);
+
+
+let prods = [];
+
+try {
+    prods = JSON.parse(fs.readFileSync(PRODUCTS_FILE_PATH, 'utf8'));
+} catch (error) {
+    console.error("Error leyendo productos:", error);
+}
 
 const PORT = 4000
 const app = express()
 
 app.use(express.json())
 
-let prods = [
-    { id: 1, nombre: "RX 6600", categoria: "GPUS", code: "G1", precio: 999 },
-    { id: 2, nombre: "RTX 4090", categoria: "GPUS", code: "G2", precio: 999 },
-    { id: 3, nombre: "Ryzen 5 3600", categoria: "Processors", code: "P1", precio: 999 }
-]
-
 app.get('/', (req, res) => {
     res.send("Bienvenido.")
 })
 
-app.get('/products', (req, res) => {
+app.get('/products', async (req, res) => {
     console.log(req.query)
+    const products = await productManager.getProducts()
     const { categoria } = req.query
     if (categoria) {
         const products = prods.filter(prod => prod.categoria === categoria)

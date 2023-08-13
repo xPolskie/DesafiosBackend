@@ -1,23 +1,14 @@
 import { promises as fs } from 'fs'
 
-const path = './products/productos.json'
+class ProductManager {
 
-async function getProducts() {
-    const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
-    console.log(prods)
-}
+    constructor (productsFilePath) {
+        this.path = productsFilePath;
+        this.products = null;
+    }
+    
 
-const getProductById = async (id) => {
-    const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
-    const producto = prods.find(prod => prod.id === id)
-
-    if (producto)
-        console.log(producto)
-    else
-        console.log("Producto inexistente")
-}
-
-const addProduct = async (product) => {
+async addProduct(product) {
     const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
     const producto = prods.find(prod => prod.id === product.id)
 
@@ -29,8 +20,36 @@ const addProduct = async (product) => {
     }
 }
 
-const updateProduct = async (id, product) => {
-    const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
+async getProducts() {
+    const prods = JSON.parse(await fs.readFile(this.path, 'utf-8'))
+    console.log(prods)
+}
+
+
+async getProductById(id) {
+    const prods = JSON.parse(await fs.readFile(productsFilePath, 'utf-8'))
+    const producto = prods.find(prod => prod.id === id)
+
+    if (producto)
+        console.log(producto)
+    else
+        console.log("Producto inexistente")
+}
+
+async addProduct(product) {
+    const prods = JSON.parse(await fs.readFile(productsFilePath, 'utf-8'))
+    const producto = prods.find(prod => prod.id === product.id)
+
+    if (producto) {
+        console.log("Producto ya existente")
+    } else {
+        prods.push(product)
+        await fs.writeFile(path, JSON.stringify(prods))
+    }
+}
+
+async updateProduct(id, product) {
+    const prods = JSON.parse(await fs.readFile(productsFilePath, 'utf-8'))
     const indice = prods.findIndex(prod => prod.id === id)
     if (indice != -1) {
         prods[indice].nombre = product.nombre
@@ -40,8 +59,8 @@ const updateProduct = async (id, product) => {
     }
 }
 
-const deleteProduct = async (id) => {
-    const prods = JSON.parse(await fs.readFile(path, 'utf-8'))
+async deleteProduct(id) {
+    const prods = JSON.parse(await fs.readFile(productsFilePath, 'utf-8'))
     const producto = prods.find(prod => prod.id === id)
 
     if (producto) {
@@ -49,4 +68,6 @@ const deleteProduct = async (id) => {
     } else {
         console.log("Producto inexistente")
     }
-}
+}}
+
+export default ProductManager;
